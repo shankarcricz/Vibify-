@@ -1,20 +1,25 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Login';
-import SearchBar from './components/SearchBar';
-import {BrowserRouter, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
-import SongList from './components/SongList';
+import './App.css';
+import LeftMenu from './components/LeftMenu';
+import MainComponent from './components/MainComponent';
 
 
 function App() {
   return (
     <>
       <BrowserRouter>
-          <Route path="/login" exact component={Login} />
+        <Route path="/login" exact component={Login} />
       </BrowserRouter>
-      <SearchBar />
-      <SongList />
+      <div className='top-section col-12'>
+        <div className='row g-0'>
+          <div className='left col-3'><LeftMenu /></div>
+          <div className='main col'><MainComponent /></div>
+        </div>
+      </div>
     </>
   );
 }

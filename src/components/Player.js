@@ -7,14 +7,8 @@ function Player(props) {
   const token = localStorage.getItem('accessToken');
   const trackUri = props.uri;
   return (
-    <SpotifyPlayer
-      token={token}
-      uris={[trackUri]}
-      autoPlay={true}
-      play={true}
-      
-    />
-  );
+      <div>Hi</div>
+    );
 }
 
 

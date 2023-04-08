@@ -1,0 +1,20 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.left-menu {
+    height: 100vh;
+    color: rgb(154, 152, 152);
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    width: 25%;
+}
+
+.menu-item:hover {
+    color: rgb(210, 206, 206);
+    transition: ease-in 0.3s;
+    cursor: pointer;
+}
+.active {
+    color: rgb(255, 255, 255);
+}

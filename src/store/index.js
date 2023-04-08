@@ -15,6 +15,6 @@ const store = configureStore({
 });
 setupListeners(store.dispatch);
 
-export {useFetchSongsQuery} from './apis/index'
+export {useFetchSongsByArtistQuery, useFetchAlbumsByArtistQuery} from './apis/index'
 export {store}
 export {addsongs} from './slices/songsSlice'

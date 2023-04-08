@@ -3,26 +3,34 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 const songsApi = createApi({
     reducerPath: 'songs',
     baseQuery : fetchBaseQuery({
-        baseUrl : 'https://spotify81.p.rapidapi.com'
+        baseUrl : 'https://api.jamendo.com/v3.0'
     }),
     endpoints(builder) {
         return {
-            fetchSongs: builder.query({
+            fetchSongsByArtist: builder.query({
                 query : (searchTerm) => {
                     return {
-                        url : '/search',
+                        url : '/albums/tracks/',
                         method : 'GET',
                         params: {
-                            q: searchTerm,
-                            type: 'multi',
-                            offset: '0',
-                            limit: '10',
-                            numberOfTopResults: '5'
-                          },
-                          headers: {
-                            'X-RapidAPI-Key': '33dba06280msh6b5859d8bed45e2p1a60e1jsne974a6cc4963',
-                            'X-RapidAPI-Host': 'spotify81.p.rapidapi.com'
+                            format : 'jsonpretty',
+                            limit : 10,
+                            artist_name : searchTerm,
+                            client_id : '0db4c8f4'
                           }
+                    }
+                }
+            }),
+            fetchAlbumsByArtist: builder.query({
+                query : (searchTerm) => {
+                    return {
+                        url : '/albums/',
+                        method : 'GET',
+                        params: {
+                            format : 'jsonpretty',
+                            artist_name : searchTerm,
+                            client_id : '0db4c8f4'
+                        }
                     }
                 }
             })
@@ -30,7 +38,7 @@ const songsApi = createApi({
     }
 })
 
-export const {useFetchSongsQuery} = songsApi
+export const {useFetchSongsByArtistQuery, useFetchAlbumsByArtistQuery} = songsApi
 
 
 

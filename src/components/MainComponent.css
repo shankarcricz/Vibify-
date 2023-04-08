@@ -1,0 +1,81 @@
+.chevron {
+    cursor: pointer;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 5px;
+    position: absolute;
+    width: 30px;
+    top: 25px;
+}
+
+.chevron:first-child {
+    left: 0;
+}
+
+.chevron:hover {
+    height: 36px;
+    width: 33px;
+    transition: ease-in 0.2s;
+}
+
+
+
+.top-main {
+    background: linear-gradient(180deg, purple, black);
+}
+
+.navbar {
+    background: transparent;
+    height: 50px;
+    margin: auto;
+    padding: 40px;
+ 
+
+}
+
+.bottom-section {
+    background-color: rgb(23, 22, 22);
+
+}
+
+.title {
+    background-color: rgb(33, 33, 33);
+    opacity: 0.6;
+    color: white;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 10px;
+}
+
+.title:hover {
+    opacity: 1;
+}
+
+
+.album-card {
+    margin-top: 23px;
+    cursor: pointer;
+}
+
+
+
+.card {
+    background: rgb(33, 33, 33);
+    padding: 10px;
+    border-radius: 15px;
+    height: 100%;
+    opacity: 0.6;
+}
+
+.card:hover {
+    opacity: 1;
+    cursor: pointer;
+    transition: ease-in 0.3s;
+}
+
+.card:hover .play {
+    color: rgb(39, 214, 39);
+    transition: ease 0.3s;
+}
