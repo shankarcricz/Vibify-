@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import LeftMenu from './components/LeftMenu';
 import MainComponent from './components/MainComponent';
+import Player from './components/Player';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <div className='left col-3'><LeftMenu /></div>
           <div className='main col'><MainComponent /></div>
         </div>
+        <Player />
       </div>
     </>
   );

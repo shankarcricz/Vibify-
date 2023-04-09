@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { songsApi } from './apis/index';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
-import { addsongs, songsList } from './slices/songsSlice';
+import { addCurrent, songsList } from './slices/songsSlice';
 
 const store = configureStore({
     reducer : {
@@ -17,4 +17,4 @@ setupListeners(store.dispatch);
 
 export {useFetchSongsByArtistQuery, useFetchAlbumsByArtistQuery} from './apis/index'
 export {store}
-export {addsongs} from './slices/songsSlice'
+export {addCurrent} from './slices/songsSlice'

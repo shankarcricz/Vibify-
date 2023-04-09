@@ -8,3 +8,18 @@
 .top-section {
   overflow-x: hidden;
 }
+
+.backwardBtn:hover {
+  color: white;
+  cursor: pointer;
+}
+.forwardBtn:hover {
+  color: white;
+  cursor: pointer;
+}
+.playButton:hover {
+  cursor: pointer;
+  transform: rotate(360deg);
+  transition: all ease-in 1s;
+}
+

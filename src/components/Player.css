@@ -1,0 +1,67 @@
+:root {
+    --main-width:0%;
+  }
+  
+
+.player {
+    height: 100px;
+    background-color: black !important;
+    position: fixed !important;
+    width: 100%;
+    bottom: 0;
+    padding-bottom: 40px;
+}
+
+#range {
+  margin: 10px;
+
+  width: 90%;
+  position: relative;
+  height: 5px;
+  outline: none;
+  border: none;
+  appearance: none;
+  border-radius: 10px;
+  background-color: rgb(212, 207, 207)
+}
+
+#range::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  background-color: black;
+  width:var(--main-width);
+  height: 100%;
+  border-radius: 10px;
+  z-index: 2;
+  transition:  all 0.3s ease;
+  cursor: pointer;
+}
+#range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+.circle-rotate {
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    background-color: purple;
+    animation: spinner 2s linear infinite;;
+}
+@keyframes spinner {
+    from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+}
+

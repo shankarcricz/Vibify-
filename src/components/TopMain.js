@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import FeatureSongs from "./FeatureSongs";
+import { useSelector } from "react-redux";
 const TopMain = () => {
     let message = ''
 
@@ -22,6 +23,12 @@ const TopMain = () => {
             message = 'Good Night'
         }
     }
+    const arr = useSelector(state => state.songsList.color)
+    useEffect(() => {
+        const num = Math.ceil((Math.random() * 5))
+        document.querySelector('.top-main').style.background = `linear-gradient(180deg, ${arr[num]}, black)` ;
+    }, [])
+    
     return (
         <div className="top-main">
             <div className="row navbar">
