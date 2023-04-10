@@ -19,7 +19,7 @@ function App() {
         <div className='row g-0'>
           <div className='left col-3'><LeftMenu /></div>
           <div className='main col'>
-            <Route path='/home' exact component={MainComponent} />
+            <Route path='/' exact component={MainComponent} />
             <Route path='/search' exact component={SearchBar} />
           </div>
         </div>

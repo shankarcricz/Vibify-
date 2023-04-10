@@ -22,7 +22,7 @@ const LeftMenu = () => {
     }, [])
 
     const menuList = [
-        { "title": "Home", "icon": <FiHome size={20}/> , "rurl" : '/home' },
+        { "title": "Home", "icon": <FiHome size={20}/> , "rurl" : '/' },
         { "title": "Search", "icon": <FiSearch size={20} />,  "rurl" : '/search' },
         { "title": "Your Library", "icon": <BiLibrary size={20} />, "rurl": "/library" },
         { "title": "Create Playlist", "icon": <FaPlus size={20} />, "rurl": "playlist" },
