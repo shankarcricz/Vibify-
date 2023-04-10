@@ -13,7 +13,7 @@ const FeatureSongs = () => {
 
     const songs = data.map((album, index) => {
         return (
-            <div className="col-4 album-card" key={album.id}>
+            <div className="col-lg-4 col-md-6 col-12 album-card" key={album.id}>
                 <div className="row g-0">
                     <div className="col-3">
                         <img height="100%" width="100%" src={album.image} alt="" />

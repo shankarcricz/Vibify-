@@ -1,0 +1,23 @@
+.search-bar {
+    padding: 40px;
+    margin: auto;
+    width: 95%;
+}
+.suggestions {
+    background-color: ghostwhite;
+    border-radius: 10px;
+    animation: ani 2s ease-in;
+}
+
+@keyframes ani {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.list {
+    background: url('https://img.freepik.com/free-vector/glowing-musical-pentagram-background-with-sound-notes_1017-31220.jpg');
+}

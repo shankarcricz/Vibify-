@@ -7,6 +7,7 @@ import './App.css';
 import LeftMenu from './components/LeftMenu';
 import MainComponent from './components/MainComponent';
 import Player from './components/Player';
+import SearchBar from './components/SearchBar';
 
 
 function App() {
@@ -14,14 +15,17 @@ function App() {
     <>
       <BrowserRouter>
         <Route path="/login" exact component={Login} />
-      </BrowserRouter>
       <div className='top-section col-12'>
         <div className='row g-0'>
           <div className='left col-3'><LeftMenu /></div>
-          <div className='main col'><MainComponent /></div>
+          <div className='main col'>
+            <Route path='/home' exact component={MainComponent} />
+            <Route path='/search' exact component={SearchBar} />
+          </div>
         </div>
         <Player />
       </div>
+      </BrowserRouter>
     </>
   );
 }

@@ -33,12 +33,27 @@ const songsApi = createApi({
                         }
                     }
                 }
+            }),
+            fetchAutoSuggestions: builder.query({ //https://api.jamendo.com/v3.0/autocomplete/?client_id=your_client_id&format=jsonpretty&limit=3&prefix=something&matchcount=1
+                query : (searchTerm) => {
+                    return {
+                        url : '/autocomplete',
+                        method : 'GET',
+                        params: {
+                            format : 'jsonpretty',
+                            limit : 3,
+                            prefix : searchTerm,
+                            matchcount : 1,
+                            client_id : '0db4c8f4'
+                        }
+                    }
+                }
             })
         }
     }
 })
 
-export const {useFetchSongsByArtistQuery, useFetchAlbumsByArtistQuery} = songsApi
+export const {useFetchSongsByArtistQuery, useFetchAlbumsByArtistQuery, useFetchAutoSuggestionsQuery} = songsApi
 
 
 

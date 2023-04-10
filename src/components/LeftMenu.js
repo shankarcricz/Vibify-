@@ -6,10 +6,11 @@ import { BiLibrary } from 'react-icons/bi';
 import { FaPlus } from 'react-icons/fa';
 import { BiLike } from 'react-icons/bi';
 import { BsThreeDots } from 'react-icons/bs';
+import { Link, useParams } from "react-router-dom";
 
 
 const LeftMenu = () => {
-
+    const path = window.location.pathname;
     useEffect(() => {
         const nodes = document.querySelectorAll('.menu-item');
         nodes.forEach(node => {
@@ -21,11 +22,11 @@ const LeftMenu = () => {
     }, [])
 
     const menuList = [
-        { "title": "Home", "icon": <FiHome size={20} /> },
-        { "title": "Search", "icon": <FiSearch size={20} /> },
-        { "title": "Your Library", "icon": <BiLibrary size={20} /> },
-        { "title": "Create Playlist", "icon": <FaPlus size={20} /> },
-        { "title": "Liked Songs", "icon": <BiLike size={20} /> }
+        { "title": "Home", "icon": <FiHome size={20}/> , "rurl" : '/home' },
+        { "title": "Search", "icon": <FiSearch size={20} />,  "rurl" : '/search' },
+        { "title": "Your Library", "icon": <BiLibrary size={20} />, "rurl": "/library" },
+        { "title": "Create Playlist", "icon": <FaPlus size={20} />, "rurl": "playlist" },
+        { "title": "Liked Songs", "icon": <BiLike size={20} /> , "rurl": "liked"}
     ]
     return (
         <div className="left-menu">
@@ -34,6 +35,7 @@ const LeftMenu = () => {
                 {
                     menuList.map((item, index) => {
                         return (
+                            <Link to={item.rurl} style={{textDecoration:"none"}} >
                             <div className={item.title === "Create Playlist" ? "menu-item row p-2 mt-3" : "menu-item row p-2"} key={index}>
                                 <div className="menu-item-icon col-2">
                                     {item.icon}
@@ -42,6 +44,7 @@ const LeftMenu = () => {
                                     <h6>{item.title}</h6>
                                 </div>
                             </div>
+                            </Link>
                         )
                     })
                 }

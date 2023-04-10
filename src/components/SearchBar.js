@@ -1,43 +1,75 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Container } from "react-bootstrap";
-import { useFetchSongsQuery } from "../store/apis";
-import { UseLazyQuery, copyWithStructuralSharing } from "@reduxjs/toolkit/query";
-import {songsApi} from "../store/apis/index";
-import { useDispatch, useSelector } from "react-redux";
-import { addsongs } from "../store";
-import { AccessToken } from "./AccessToken";
+import './SearchBar.css';
+import { useFetchAutoSuggestionsQuery, useFetchSongsByArtistQuery } from "../store";
+import { FetchSuggestion } from "./useFetchSuggestion";
+import axios from "axios";
+import { Button } from "bootstrap";
+import SongList from "./SongList";
 
 const SearchBar = () => {
-    useEffect(() => {
-        AccessToken()
-    }, [])
-    const [term, setTerm] = useState('');
-    const inp = useRef();
-    const dispatch = useDispatch();
-    // const {data} = useFetchSongsQuery(term)
-    const { data, isLoading, error } = useFetchSongsQuery(
-        term,
-        {
-          skip: !term,
-        }
-      );
-      console.log(data)
-    data && dispatch(addsongs(data))
+   
+    const [suggestions, setSuggestions] = useState([])
+    const [term, setTerm] = useState('')
+    const ref = useRef()
+    const sug = useRef()
+    const [shouldDisplay, setShouldDispaly] = useState(false)
+    var id;
+    const handleChange = (e) => {
+        
+        let URL = `https://api.jamendo.com/v3.0/autocomplete/?client_id=0db4c8f4&format=jsonpretty&limit=3&prefix=${e.target.value}&matchcount=1`
+        clearTimeout(id)
+        console.log(id)
+        id = setTimeout(() => {
+            axios.get(URL)
+        .then(response => setSuggestions(response.data.results.tracks))
+        .catch(error => console.log(error))
+        .finally(()=>{
+            sug.current.classList.remove('d-none')
+        })
+        },1000)
 
-    const handleClick = (e) => {
+    }
+    const handleSubmit = (e) => {
         e.preventDefault();
-        setTerm(inp.current.value)
+        setTerm(ref.current.value)
+        setShouldDispaly(true)
+        setSuggestions([])
+        sug.current.classList.add('d-none')
     }
 
+    const mapper = suggestions && suggestions.map(suggestion => {
+        return (
+            <div onClick={(e) => {
+                setTerm(suggestion.match)
+                ref.current.value = suggestion.match
+                setSuggestions([])
+                setShouldDispaly(true)
+                sug.current.classList.add('d-none')
+            }} style={{cursor:"pointer"}} className="row p-3">{suggestion.match}</div>
+        );
+    })
     return (
-        <Container>
-            <form>
-                <div className="form-group">
-                    <input ref={inp} type="text" className="form-control" placeholder="Search" />
-                    <button onClick={handleClick} type="submit" className="btn btn-primary">Search</button>
+        <>
+        <Container className="bg-dark">
+            <form className="search-bar" onSubmit={handleSubmit}>
+            <h4 className="text-light">Search for marc, dkz, m, saregama and more...</h4>
+                <div className="input-group">
+                    <input placeholder="What do you wanna listen?" ref={ref} type="text"  onChange={handleChange} className="form-control" />
+                    <button className="btn btn-light submit">Search</button>
+                </div>
+                <div ref={sug} className="suggestions d-none">
+                    {mapper}
                 </div>
             </form>
         </Container>
+        <div className="list" style={{background:"black"}}>
+            {
+                shouldDisplay && <SongList artist = {term}/>
+            }
+        </div>
+        </>
+        
     );
 }
 
