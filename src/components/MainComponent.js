@@ -11,7 +11,6 @@ const MainComponent = () => {
     return <div className="main-component">
         <TopMain />
         <BottomMain />
-
     </div>;
 }
 
