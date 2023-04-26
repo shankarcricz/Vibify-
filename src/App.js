@@ -8,6 +8,7 @@ import LeftMenu from './components/LeftMenu';
 import MainComponent from './components/MainComponent';
 import Player from './components/Player';
 import SearchBar from './components/SearchBar';
+import Library from './components/Library';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <div className='main col'>
             <Route path='/' exact component={MainComponent} />
             <Route path='/search' exact component={SearchBar} />
+            <Route path='/library' exact component={Library} />
           </div>
         </div>
         <Player />

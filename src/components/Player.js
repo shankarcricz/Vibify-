@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './Player.css';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Image } from "react-bootstrap";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
@@ -8,10 +8,12 @@ import {IoIosSkipBackward, IoIosSkipForward} from "react-icons/io";
 import { current } from "@reduxjs/toolkit";
 import { IoIosMusicalNote } from "react-icons/io";
 import { useRef } from "react";
+import { addToStack } from "../store";
 
 function Player() {
   const [isLiked, setIsLiked] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
+  const dispatch = useDispatch();
  
   const {currentSong, color} = useSelector(state => state.songsList)
   const ref = useRef();
@@ -26,6 +28,8 @@ function Player() {
     setIsLiked(false)
     ref.current.play();
     setIsPlaying(true);
+    dispatch(addToStack(currentSong))
+    
   }, [currentSong.name])
   
   const handleClick = (e) => {
