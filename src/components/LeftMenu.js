@@ -35,8 +35,9 @@ const LeftMenu = () => {
                 {
                     menuList.map((item, index) => {
                         return (
-                            <Link to={item.rurl} style={{textDecoration:"none"}} >
-                            <div className={item.title === "Create Playlist" ? "menu-item row p-2 mt-3" : "menu-item row p-2"} key={index}>
+                            <>
+                             <Link to={item.rurl} style={{textDecoration:"none", color: 'white'}} >
+                            <div className={window.location.href.endsWith(item.rurl) ? "menu-item row p-2 active" : "menu-item row p-2"} key={index}>
                                 <div className="menu-item-icon col-2">
                                     {item.icon}
                                 </div>
@@ -45,6 +46,8 @@ const LeftMenu = () => {
                                 </div>
                             </div>
                             </Link>
+                            </>
+                           
                         )
                     })
                 }

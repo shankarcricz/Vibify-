@@ -6,9 +6,11 @@
 .suggestions {
     background-color: ghostwhite;
     border-radius: 10px;
-    animation: ani 2s ease-in;
+    transition: ani 1s ease-in-out;
 }
-
+.list  {
+    background-color: rgb(12, 11, 11);
+}
 @keyframes ani {
     from {
         opacity: 0;
@@ -18,6 +20,3 @@
     }
 }
 
-.list {
-    background: url('https://img.freepik.com/free-vector/glowing-musical-pentagram-background-with-sound-notes_1017-31220.jpg');
-}

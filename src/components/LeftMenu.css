@@ -9,12 +9,27 @@
     position: fixed;
     width: 25%;
 }
+.music-player {
+    height: 140px;
+    width:240px;
+    border-radius: 50%;
+    background-color: blue;
+  }
 
 .menu-item:hover {
     color: rgb(210, 206, 206);
     transition: ease-in 0.3s;
+    border-left: 10px solid whitesmoke;
     cursor: pointer;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-right:10px solid whitesmoke
 }
 .active {
     color: rgb(255, 255, 255);
+    border-left: 10px solid whitesmoke;
+    cursor: pointer;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-right:10px solid whitesmoke
 }

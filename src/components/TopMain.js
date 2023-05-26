@@ -26,7 +26,6 @@ const TopMain = () => {
     const arr = useSelector(state => state.songsList.color)
     useEffect(() => {
         const num = Math.ceil((Math.random() * 5))
-        document.querySelector('.top-main').style.background = `linear-gradient(180deg, ${arr[num]}, black)` ;
     }, [])
     
     return (

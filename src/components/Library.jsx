@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { AiOutlinePlayCircle } from 'react-icons/ai'
+import './Library.css'
 
 function Library() {
     const data = useSelector(state => state.library.stack)
@@ -30,7 +31,7 @@ function Library() {
 
     })
     return (
-        <div className="container">
+        <div className="container library">
             <div className="row">
                 <h2>Do you want to revist what you've listened?</h2>
                 {songs}

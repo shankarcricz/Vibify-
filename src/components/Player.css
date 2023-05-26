@@ -3,6 +3,7 @@
   }
   
 
+  
 .player {
     height: 100px;
     background-color: black !important;
@@ -64,4 +65,5 @@
         transform: rotate(360deg);
       }
 }
+
 

@@ -3,7 +3,7 @@ import SpotifyWebApi from 'spotify-web-api-js';
 export const AccessToken = () => {
     const CLIENT_ID = 'e9418050398b47ed82e5d20bc825b7ff';
     const CLIENT_SECRET = '55d6920797a34115a4ddb96fdc319aa1';
-    const REDIRECT_URI = 'http://localhost:3000';
+    const REDIRECT_URI = 'http://localhost:3000/';
     const AUTHORIZATION_ENDPOINT = 'https://accounts.spotify.com/authorize';
     const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token';
 

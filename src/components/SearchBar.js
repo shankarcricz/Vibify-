@@ -27,15 +27,16 @@ const SearchBar = () => {
         .finally(()=>{
             sug.current.classList.remove('d-none')
         })
-        },1000)
+        },100)
 
     }
     const handleSubmit = (e) => {
         e.preventDefault();
+        clearTimeout(id)
+        sug.current.classList.add('d-none')
         setTerm(ref.current.value)
         setShouldDispaly(true)
         setSuggestions([])
-        sug.current.classList.add('d-none')
     }
 
     const mapper = suggestions && suggestions.map(suggestion => {
@@ -63,9 +64,9 @@ const SearchBar = () => {
                 </div>
             </form>
         </Container>
-        <div className="list" style={{background:"black"}}>
+        <div className="list">
             {
-                shouldDisplay && <SongList artist = {term}/>
+               shouldDisplay && <SongList artist = {term}/>
             }
         </div>
         </>

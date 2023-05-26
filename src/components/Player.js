@@ -33,12 +33,14 @@ function Player() {
   }, [currentSong.name])
   
   const handleClick = (e) => {
-    if(e.target.classList.contains('playButton')) {
+    
+    if(!isPlaying) {
       ref.current.play()
     } else {
       ref.current.pause()
     }
     setIsPlaying(prev => !prev)
+   
   }
   
 
@@ -73,7 +75,6 @@ function Player() {
 
                 }
               </div>
-              
               <div className="col">
                 <IoIosSkipForward className="forwardBtn" size={30} />
               </div>
@@ -90,6 +91,7 @@ function Player() {
             </div>
           </div>
         </div>
+       
         <div className="circle-rotate">
           </div>
       </div>)

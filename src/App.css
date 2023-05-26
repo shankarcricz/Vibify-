@@ -23,3 +23,10 @@
   transition: all ease-in 1s;
 }
 
+.top-main {
+  background-image: url(https://cdn.pixabay.com/photo/2015/04/15/09/47/men-723557_1280.jpg) !important;
+  background-size: 200vh;
+  background-repeat: no-repeat;
+}
+
+

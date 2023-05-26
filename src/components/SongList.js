@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
 import { AiOutlinePlayCircle } from "react-icons/ai";
 import { useDispatch } from "react-redux";
+import { FiMoreHorizontal } from "react-icons/fi";
 
 const SongList = (props) => { //artist
     const { data, isLoading, isFetching } = useFetchSongsByArtistQuery(props.artist);
@@ -19,6 +20,7 @@ const SongList = (props) => { //artist
     const listy = data?.results[0]?.tracks;
     const mapper = listy && listy.map(obj => {
         return (
+ 
             <div className="col-lg-3 col-md-6 col-6 mt-2">
                  <div className="card" onClick={() => handleClick(obj, data?.results[0]?.image)}>
                     <Image src={data?.results[0]?.image} fluid rounded />
@@ -37,10 +39,19 @@ const SongList = (props) => { //artist
 
     return (
         <>
-            <h3 className="text-light">{props.artist}</h3>
-            <div className="row">
-                {mapper}
-            </div>
+        {
+            !data?.results[0]?.tracks && !isLoading ? (<div className="text-light">No Results found! :)</div>) : <h3 className="text-light">
+            <span>
+            {props.artist}</span>
+            <span style={{cursor:'pointer', marginRight:'20px'}}>
+                <FiMoreHorizontal/>
+            </span>
+            </h3>
+        }
+         <div className="row">
+            {mapper}
+        </div>
+            
         </>
 
     );
