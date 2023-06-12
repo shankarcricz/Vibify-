@@ -1,3 +1,5 @@
+import { useFetchSongsByArtistQuery } from "../store";
+
 export const featuredAlbums = [
     {
         "id":"126",
@@ -74,9 +76,13 @@ export const featuredAlbums = [
 ];
 
 export const artists = [
-    'DKZ',
+    'Alexandre',
+    'RaiNdOg',
+    'Greendjohn',
+    'Borrachos',
+    'Marka Akme',
     'AMpm',
-    'SaReGaMa',
-    'Marc',
-    'David',
+    'Eva Garcia'
 ]
+
+

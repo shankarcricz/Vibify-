@@ -66,7 +66,7 @@ const SearchBar = () => {
         </Container>
         <div className="list">
             {
-               shouldDisplay && <SongList artist = {term}/>
+               shouldDisplay && <SongList artist = {term} fromSearch={true}/>
             }
         </div>
         </>

@@ -40,7 +40,10 @@ const SongList = (props) => { //artist
     return (
         <>
         {
-            !data?.results[0]?.tracks && !isLoading ? (<div className="text-light">No Results found! :)</div>) : <h3 className="text-light">
+            !data?.results[0]?.tracks && !isLoading && props.fromSearch && <div>No Results!</div>
+        }
+        {(data?.results[0]?.tracks) &&
+            <h3 className="text-light">
             <span>
             {props.artist}</span>
             <span style={{cursor:'pointer', marginRight:'20px'}}>
